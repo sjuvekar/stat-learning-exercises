@@ -14,7 +14,7 @@ Caravan.test = Caravan[-train, ]
 ```{r 11b}
 library(gbm)
 set.seed(342)
-boost.caravan = gbm(Purchase~., data=Caravan.train, n.trees=1000, shrinkage=0.01)
+boost.caravan = gbm(Purchase~., data=Caravan.train, n.trees=1000, shrinkage=0.01, distribution="bernoulli")
 summary(boost.caravan)
 ```
 $\tt{PPERSAUT}$, $\tt{MKOOPKLA}$ and $\tt{MOPLHOOG}$ are three most important variables in that order.
@@ -34,4 +34,4 @@ lm.pred = ifelse(lm.prob > 0.2, 1, 0)
 table(Caravan.test$Purchase, lm.pred)
 58 / (350 + 58)
 ```
-About $14$% of people predicted to make purchase usinglogistic regression actually end up making one. This is lower than boosting.
+About $14$% of people predicted to make purchase using logistic regression actually end up making one. This is lower than boosting.

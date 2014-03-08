@@ -341,15 +341,15 @@ summary(boost.best)
 </code></pre>
 
 <pre><code class="r">set.seed(21)
-rf.hitters = randomForest(Salary ~ ., data = Hitters.train, ntree = 500)
+rf.hitters = randomForest(Salary ~ ., data = Hitters.train, ntree = 500, mtry = 19)
 rf.pred = predict(rf.hitters, Hitters.test)
 mean((Hitters.test$Salary - rf.pred)^2)
 </code></pre>
 
-<pre><code>## [1] 0.2148
+<pre><code>## [1] 0.2298
 </code></pre>
 
-<p>Test MSE for bagging is about \( 0.21 \), which is slightly lower than the best test MSE for boosting.</p>
+<p>Test MSE for bagging is about \( 0.23 \), which is slightly lower than the best test MSE for boosting.</p>
 
 </body>
 

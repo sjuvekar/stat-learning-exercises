@@ -72,8 +72,8 @@ $\tt{CAtBat}$, $\tt{CRBI}$ and $\tt{CWalks}$ are three most important variables 
 ```{r 10g}
 library(randomForest)
 set.seed(21)
-rf.hitters = randomForest(Salary~., data=Hitters.train, ntree=500)
+rf.hitters = randomForest(Salary~., data=Hitters.train, ntree=500, mtry=19)
 rf.pred = predict(rf.hitters, Hitters.test)
 mean((Hitters.test$Salary - rf.pred)^2)
 ```
-Test MSE for bagging is about $0.21$, which is slightly lower than the best test MSE for boosting.
+Test MSE for bagging is about $0.23$, which is slightly lower than the best test MSE for boosting.

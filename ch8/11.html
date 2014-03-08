@@ -208,10 +208,8 @@ Caravan.test = Caravan[-train, ]
 </code></pre>
 
 <pre><code class="r">set.seed(342)
-boost.caravan = gbm(Purchase ~ ., data = Caravan.train, n.trees = 1000, shrinkage = 0.01)
-</code></pre>
-
-<pre><code>## Distribution not specified, assuming bernoulli ...
+boost.caravan = gbm(Purchase ~ ., data = Caravan.train, n.trees = 1000, shrinkage = 0.01, 
+    distribution = &quot;bernoulli&quot;)
 </code></pre>
 
 <pre><code>## Warning: variable 50: PVRAAUT has no variation.
@@ -362,7 +360,7 @@ table(Caravan.test$Purchase, lm.pred)
 <pre><code>## [1] 0.1422
 </code></pre>
 
-<p>About \( 14 \)% of people predicted to make purchase usinglogistic regression actually end up making one. This is lower than boosting.</p>
+<p>About \( 14 \)% of people predicted to make purchase using logistic regression actually end up making one. This is lower than boosting.</p>
 
 </body>
 
